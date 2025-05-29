@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
+import Home from './src/Screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigation from './src/navigation/StackNavigation';
 export default function App() {
   return (
-    <View >
-      <Text>Mi nuevo Proyecto </Text>
-    </View>
+    <NavigationContainer>
+      <StackNavigation />
+    </NavigationContainer>
   );
 }
 

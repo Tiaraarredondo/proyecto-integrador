@@ -43,6 +43,7 @@ export default class Login extends Component {
                 value={this.state.email}
                 onChangeText={(text) => this.setState({email: text, error: false })}
                 style={styles.input}
+                placeholder='Ingresa tu mail'
             />
             <TextInput
                 keyboardType='default'
@@ -50,6 +51,7 @@ export default class Login extends Component {
                 onChangeText={(text) => this.setState({password: text, error: false })}
                 style={styles.input}
                 secureTextEntry={true}
+                placeholder='Ingresa tu contraseña'
             />
             <TouchableOpacity
                 style={styles.btn}

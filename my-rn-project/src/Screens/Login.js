@@ -36,8 +36,8 @@ export default class Login extends Component {
 
     render() {
         return (
-        <View>
-            <Text>Login</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>Login</Text>
             <TextInput
                 keyboardType='email'
                 value={this.state.email}
@@ -60,12 +60,12 @@ export default class Login extends Component {
                 <Text style={styles.btnTxt}>Ingresa</Text>
             </TouchableOpacity>
             {
-                            this.state.error ? <Text>Credenciales invalidas</Text> : null
+                            this.state.error ? <Text style={styles.errorText}>Al parecer algun dato no es correcto 🤨. Intentalo de nuevo.</Text> : null
                         }
 
 
             <TouchableOpacity onPress={()=> this.irAlRegistro()}>
-                            <Text>Ir al Register</Text>
+                            <Text style={styles.registerLink}>Ir al Register</Text>
                         </TouchableOpacity>
 
 
@@ -76,15 +76,50 @@ export default class Login extends Component {
 
 
 const styles = StyleSheet.create({
-    input:{
-        borderWidth:1,
-        borderColor:'green',
-        marginBottom: 8
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 30,
     },
-    btn:{
-        backgroundColor: 'blue'
+    title: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        marginBottom: 30,
+        color: '#222',
     },
-    btnTxt:{
-        color:'white'
-    }
-})
+    input: {
+        width: '100%',
+        height: 50,
+        backgroundColor: '#f2f2f2',
+        borderRadius: 10,
+        paddingHorizontal: 15,
+        marginBottom: 15,
+        fontSize: 16,
+    },
+    btn: {
+        width: '100%',
+        height: 50,
+        backgroundColor: '#3897f0',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+    },
+    btnTxt: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    registerLink: {
+        marginTop: 20,
+        color: '#3897f0',
+        fontSize: 14,
+    },
+    errorText: {
+        color: 'red',
+        marginTop: 10,
+        textAlign: 'center',
+    },
+});

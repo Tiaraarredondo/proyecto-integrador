@@ -21,7 +21,7 @@ export default class Register extends Component {
 
     registrarUsuario(email, password, username){
         if(
-            (email !== '' && password !== '') 
+            (email !== '' && password !== '' && username !== '') 
             &&
             (email.includes('@'))
             &&
@@ -47,7 +47,7 @@ export default class Register extends Component {
             })
             .catch((err)=> console.log('firebase err', err))
         } else {
-            this.setState({input1:'', input2: '', error: true})
+            this.setState({input1:'', input2: '', input3: '', error: true})
         }
     }
 
@@ -57,8 +57,8 @@ export default class Register extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Register</Text>
+      <View style={styles.container}>
+  <Text style={styles.title}>Registro</Text>
             <TextInput
                 style={
                     styles.input
@@ -75,7 +75,7 @@ export default class Register extends Component {
                 keyboardType='default'
                 value={this.state.input2}
                 onChangeText={(texto) => this.setState({input2: texto, error: false }) }
-                placeholder='Ingresa tu password'
+                placeholder='Ingresa tu contraseña'
                 secureTextEntry={true}
             />
             <TextInput
@@ -87,14 +87,15 @@ export default class Register extends Component {
                 onChangeText={(texto) => this.setState({input3: texto, error: false }) }
                 placeholder='Ingresa tu nombre de usuario'
             />
-            <TouchableOpacity onPress={()=> this.registrarUsuario(this.state.input1, this.state.input2, this.state.input3)}>
-                <Text>Registrarme</Text>
+            <TouchableOpacity style={styles.btn} onPress={()=> this.registrarUsuario(this.state.input1, this.state.input2, this.state.input3)}>
+                <Text style={styles.btnTxt}>Registrarme</Text>
             </TouchableOpacity>
             {
-                this.state.error ? <Text>Credenciales invalidas</Text> : null
+                this.state.error ? <Text style={styles.errorText}>🚨Debes completar todos los campos🚨</Text> : null
             }
             <TouchableOpacity onPress={()=> this.irAlLogin()}>
-                <Text>Ir al login</Text>
+                <Text style={styles.registerLink}>¿Ya tenes cuenta? Inicia sesión.💫
+                </Text>
             </TouchableOpacity>
       </View>
     )
@@ -102,8 +103,50 @@ export default class Register extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 30,
+    },
+    title: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        marginBottom: 30,
+        color: '#222',
+    },
     input: {
-        borderWidth: 2,
-        borderColor: 'red'
-    }
-})
+        width: '100%',
+        height: 50,
+        backgroundColor: '#f2f2f2',
+        borderRadius: 10,
+        paddingHorizontal: 15,
+        marginBottom: 15,
+        fontSize: 16,
+    },
+    btn: {
+        width: '100%',
+        height: 50,
+        backgroundColor: '#3897f0',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+    },
+    btnTxt: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    registerLink: {
+        marginTop: 20,
+        color: '#3897f0',
+        fontSize: 14,
+    },
+    errorText: {
+        color: 'red',
+        marginTop: 10,
+        textAlign: 'center',
+    },
+});

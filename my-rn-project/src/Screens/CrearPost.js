@@ -40,8 +40,8 @@ export default class CrearPost extends Component {
 
     render() {
         return (
-            <View>
-                <Text>Crear Post</Text>
+            <View style={styles.container}>
+    <Text style={styles.title}>Crear Post</Text>
                 <TextInput
                     style={styles.input}
                     keyboardType='default'
@@ -50,21 +50,56 @@ export default class CrearPost extends Component {
                     placeholder='¿Qué estás pensando?'
                 />
 
-                <TouchableOpacity onPress={() => this.CrearPosteo()}>
-                    <Text>Postear</Text>
+                <TouchableOpacity style={styles.btn} onPress={() => this.CrearPosteo()}>
+                    <Text style={styles.btnTxt}>Postear</Text>
                 </TouchableOpacity>
 
-                {this.state.error && <Text>No has escrito nada aún 🥲</Text>}
+                {this.state.error && <Text style={styles.errorText}>No has escrito nada aún 🥲</Text>}
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 30,
+    },
+    title: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#222',
+        marginBottom: 20,
+    },
     input: {
-        borderWidth: 2,
-        borderColor: 'red',
-        padding: 10,
-        margin: 10
+        width: '100%',
+        minHeight: 100,
+        backgroundColor: '#f2f2f2',
+        borderRadius: 10,
+        padding: 15,
+        fontSize: 16,
+        textAlignVertical: 'top',
+        marginBottom: 20,
+    },
+    btn: {
+        width: '100%',
+        height: 50,
+        backgroundColor: '#3897f0',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    btnTxt: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    errorText: {
+        color: 'red',
+        marginTop: 10,
+        textAlign: 'center',
     }
-})
+});

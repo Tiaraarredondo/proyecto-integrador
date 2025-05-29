@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import React, { Component } from 'react'
 import { db } from '../firebase/config'
+import LikearPost from '../components/LikearPosts'
 
 
 export default class Home extends Component {
@@ -41,7 +42,8 @@ export default class Home extends Component {
                     renderItem={({ item }) => (
                         <View style={styles.post}>
                             <Text style={styles.owner}>👤 {item.data.owner}</Text>
-                            <Text>{item.data.text}</Text>
+                            <Text style={styles.postText}>{item.data.text}</Text>
+                            <LikearPost data={item.data} id={item.id} />
                         </View>
                     )}
                 />
@@ -51,24 +53,39 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-    main : {
-        flex : 1,
+    main: {
+        flex: 1,
+        backgroundColor: '#fff',
+        paddingHorizontal: 20,
+        paddingTop: 20,
     },
-
     title: {
-        fontSize: 24,
+        fontSize: 28,
         fontWeight: 'bold',
-        marginVertical: 10,
-        textAlign: 'center'
+        color: '#222',
+        marginBottom: 15,
+        textAlign: 'center',
     },
     post: {
+        backgroundColor: '#f9f9f9',
+        borderRadius: 12,
         padding: 15,
-        margin: 10,
-        backgroundColor: '#eee',
-        borderRadius: 10
+        marginBottom: 15,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.05,
+        shadowRadius: 4,
+        elevation: 2,
     },
     owner: {
         fontWeight: 'bold',
-        marginBottom: 5
+        color: '#444',
+        marginBottom: 8,
+        fontSize: 14,
+    },
+    postText: {
+        fontSize: 16,
+        color: '#333',
+        marginBottom: 10,
     }
-})
+});

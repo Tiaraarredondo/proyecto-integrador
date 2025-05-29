@@ -40,7 +40,7 @@ export default class Perfil extends Component {
         });
     }
   }
-  
+
   deletePost(postId) {
     db.collection('posts').doc(postId).delete()
       .then(() => {
@@ -84,8 +84,8 @@ export default class Perfil extends Component {
                 renderItem={({ item }) => (
                   <View style={styles.post}>
                     <Text>{item.data.text}</Text>
-                    <TouchableOpacity 
-                      style={styles.deleteButton} 
+                    <TouchableOpacity
+                      style={styles.deleteButton}
                       onPress={() => this.deletePost(item.id)}
                     >
                       <Text style={styles.deleteButtonText}>Eliminar</Text>
@@ -115,6 +115,17 @@ const styles = StyleSheet.create({
   container: {
     padding: 20
   },
+  deleteButton: {
+    backgroundColor: 'darkred',
+    padding: 5,
+    borderRadius: 3,
+    marginTop: 5,
+    alignSelf: 'flex-start',
+  },
+  deleteButtonText: {
+    color: '#fff',
+    fontWeight: 'bold'
+  },
   title: {
     fontSize: 24,
     marginBottom: 20
@@ -136,3 +147,4 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+

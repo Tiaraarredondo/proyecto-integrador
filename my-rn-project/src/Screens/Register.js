@@ -39,6 +39,7 @@ export default class Register extends Component {
                     username: this.state.input3
                 })
                 .then(()=> {
+                    auth.signOut()
                     this.props.navigation.navigate('Login')
                 })
                 .catch((err) => console.log(err))

@@ -1,9 +1,9 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "../Screens/Home";
 import Register from "../Screens/Register";
 import Login from "../Screens/Login";
 import BottomTabs from "./BottomTabs";
-
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {
@@ -22,7 +22,6 @@ function StackNavigation() {
                     headerShown:false
                 }}
             />
-
         </Stack.Navigator>
     )
 }

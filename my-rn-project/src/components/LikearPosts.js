@@ -74,30 +74,29 @@ export default class LikearPost extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>{this.props.data.owner}</Text>
-                <Text>likes:{this.state.cantLikes}</Text>
+                <Text style={styles.likeCount}>❤️ {this.state.cantLikes} likes</Text>
                 {
                     this.state.likes ?
-                        <TouchableOpacity
+                        <TouchableOpacity style={styles.button}
                             onPress={() => this.Dislikear()}
 
 
 
 
                         >
-                            <Text>
-                                Dislikear
+                            <Text style={styles.buttonText}>
+                                Quitar like
                             </Text>
                         </TouchableOpacity>
                         :
-                        <TouchableOpacity
+                        <TouchableOpacity style={styles.button}
                             onPress={() => this.LikearUsuario()}
 
 
 
 
                         >
-                            <Text>
+                            <Text style={styles.buttonText}>
                                 Like
                             </Text>
                         </TouchableOpacity>
@@ -128,13 +127,30 @@ export default class LikearPost extends Component {
 }
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 16
+        marginTop: 10,
+        borderTopWidth: 1,
+        borderTopColor: '#eee',
+        paddingTop: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    likeCount: {
+        fontSize: 14,
+        color: '#555'
+    },
+    button: {
+        backgroundColor: '#FF4081',
+        paddingVertical: 6,
+        paddingHorizontal: 16,
+        borderRadius: 20,
+    },
+    buttonText: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 14,
     }
-
-
-
-
-})
+});
 
 
 

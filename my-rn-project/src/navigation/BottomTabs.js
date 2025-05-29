@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { FontAwesome , Entypo } from '@expo/vector-icons'
+import { FontAwesome , Entypo, MaterialIcons} from '@expo/vector-icons'
 import Home from '../Screens/Home';
 import Perfil from '../Screens/Perfil';
 import CrearPost from '../Screens/CrearPost';
@@ -11,19 +11,20 @@ export default function BottomTabs() {
     <Tab.Navigator>
 
         <Tab.Screen 
-          name='Perfil' 
-          component={Perfil}
-          options={{
-            headerShown:false,
-            tabBarIcon: () => <FontAwesome name="signing" size={24} color="black" />
-          }}
-          />
-        <Tab.Screen 
           name='Home' 
           component={Home}
           options={{
             headerShown:false,
-            tabBarIcon: () => <FontAwesome name="signing" size={24} color="black" />
+            tabBarIcon: () => <FontAwesome name="home" size={24} color="black" />
+          }}
+          />
+
+           <Tab.Screen 
+          name='Perfil' 
+          component={Perfil}
+          options={{
+            headerShown:false,
+            tabBarIcon: () => <MaterialIcons name="account-circle" size={24} color="black" />
           }}
           />
 
@@ -32,7 +33,7 @@ export default function BottomTabs() {
           component={CrearPost}
           options={{
             headerShown:false,
-            tabBarIcon: () => <FontAwesome name="signing" size={24} color="black" />
+            tabBarIcon: () => <Entypo name="pencil" size={24} color="black" />
           }}
           />
 

@@ -69,7 +69,7 @@ export default class Perfil extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Mi Perfil</Text>
+        <Text style={styles.title}>Mi Perfil 👤</Text>
 
 
         {userData && currentUser ? (
@@ -113,38 +113,62 @@ export default class Perfil extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20
-  },
-  deleteButton: {
-    backgroundColor: 'darkred',
-    padding: 5,
-    borderRadius: 3,
-    marginTop: 5,
-    alignSelf: 'flex-start',
-  },
-  deleteButtonText: {
-    color: '#fff',
-    fontWeight: 'bold'
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#fefefe'
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#333'
   },
   infoBox: {
-    marginBottom: 20
+    marginBottom: 20,
+    padding: 15,
+    backgroundColor: '#f3f3f3',
+    borderRadius: 10,
+    elevation: 2,
   },
   text: {
     fontSize: 16,
-    marginBottom: 5
+    marginBottom: 8,
+    color: '#555',
+    textAlign :  'center'
+  },
+  post: {
+    padding: 15,
+    marginBottom: 10,
+    backgroundColor: '#e9e9e9',
+    borderRadius: 10,
+    elevation: 1
+  },
+  deleteButton: {
+    backgroundColor: '#d32f2f',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 20,
+    alignSelf: 'flex-start',
+    marginTop: 10
+  },
+  deleteButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 14
   },
   button: {
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 5
+    backgroundColor: '#009688',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+    alignSelf: 'center',
+    marginTop: 30
   },
   buttonText: {
     color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
     textAlign: 'center'
   }
 });
-

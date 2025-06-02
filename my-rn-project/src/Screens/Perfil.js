@@ -73,7 +73,7 @@ export default class Perfil extends Component {
 
 
         {userData && currentUser ? (
-          <View style={styles.infoBox}>
+          <View style={styles.container}>
             <Text style={styles.text}>Nombre de usuario: {userData.username}</Text>
             <Text style={styles.text}>Email: {currentUser.email}</Text>
             <Text style={styles.title}>Mis Posteos</Text>

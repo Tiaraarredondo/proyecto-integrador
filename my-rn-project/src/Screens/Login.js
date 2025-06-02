@@ -28,11 +28,22 @@ export default class Login extends Component {
 
 
     loguearUsuario(email, password){
-        auth.signInWithEmailAndPassword(email, password)
+        if(
+            (email !== '' && password !== '' ) 
+            &&
+            (email.includes('@'))
+            &&
+            password.length > 5
+            
+        ){
+        auth
+        .signInWithEmailAndPassword(email, password)
         .then((user)=> this.props.navigation.navigate('Tab'))
         .catch((err)=> this.setState({email : '', password : '', error : true}))
+    }else{
+         this.setState({input1:'', input2: '', error: true})
     }
-
+    }
 
     render() {
         return (

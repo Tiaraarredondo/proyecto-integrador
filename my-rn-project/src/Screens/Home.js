@@ -1,9 +1,4 @@
-import {
-    Text,
-    View,
-    FlatList,
-    StyleSheet
-} from 'react-native'
+import {Text,View,FlatList,StyleSheet,ActivityIndicator} from 'react-native'
 import React, { Component } from 'react'
 import { db } from '../firebase/config'
 import LikearPost from '../components/LikearPosts'
@@ -12,7 +7,8 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            posts: []
+            posts: [],
+            loading: true
         }
     }
 
@@ -27,11 +23,19 @@ export default class Home extends Component {
                         data: doc.data()
                     })
                 })
-                this.setState({ posts })
+                this.setState({ posts, loading:false })
             })
     }
 
     render() {
+        if (this.state.loading) {
+            return (
+                <View style={styles.loaderContainer}>
+                    <ActivityIndicator size="large" color="blue" />
+                    <Text style={styles.loadingText}>Cargando posteos...</Text>
+                </View>
+            );
+        }
         return (
             <View style={styles.main}>
                 <Text style={styles.title}>Posteos</Text>

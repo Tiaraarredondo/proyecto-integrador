@@ -30,7 +30,6 @@ export default class Perfil extends Component {
 
       db.collection('posts')
         .where('owner', '==', currentUser.email)
-        .orderBy('createdAt', 'desc')
         .onSnapshot(docs => {
         let posts = [];
         docs.forEach(doc => {

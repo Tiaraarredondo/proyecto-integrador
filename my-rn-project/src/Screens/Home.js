@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 import { db } from '../firebase/config';
-import Post from '../components/Post';
+import Post from '../components/Posts';
 
 export default class Home extends Component {
   constructor(props) {

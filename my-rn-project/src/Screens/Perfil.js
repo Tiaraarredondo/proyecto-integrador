@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { auth, db } from '../firebase/config';
-import Post from '../components/Post';
+import Post from '../components/Posts';
 
 export default class Perfil extends Component {
   constructor(props) {
@@ -25,16 +25,23 @@ export default class Perfil extends Component {
           });
         });
 
+
+
       db.collection('posts')
         .where('owner', '==', currentUser.email)
         .orderBy('createdAt', 'desc')
-        .onSnapshot(snapshot => {
-          const userPosts = snapshot.docs.map(doc => ({
+        .onSnapshot(docs => {
+        let posts = [];
+        docs.forEach(doc => {
+          posts.push({
             id: doc.id,
             data: doc.data()
-          }));
-          this.setState({ posts: userPosts });
+          });
         });
+        posts.sort((a,b)=> b.data.cratedAt - a.data.createdAt)
+          this.setState({ posts: posts });
+        });
+
     }
   }
 
@@ -66,7 +73,7 @@ export default class Perfil extends Component {
         <Text style={styles.title}>Mi Perfil 👤</Text>
 
         {userData && currentUser ? (
-          <View>
+          <View style={styles.container}>
             <Text style={styles.text}>Nombre de usuario: {userData.username}</Text>
             <Text style={styles.text}>Email: {currentUser.email}</Text>
             <Text style={styles.title}>Mis Posteos</Text>

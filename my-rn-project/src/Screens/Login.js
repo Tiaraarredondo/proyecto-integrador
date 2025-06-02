@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import React, { Component } from 'react'
 import { auth } from '../firebase/config'
+import { FontAwesome6 } from "@expo/vector-icons"
 
 export default class Login extends Component {
     constructor(props){
@@ -71,7 +72,8 @@ export default class Login extends Component {
                 <Text style={styles.btnTxt}>Ingresa</Text>
             </TouchableOpacity>
             {
-                            this.state.error ? <Text style={styles.errorText}>Al parecer algun dato no es correcto 🤨. Intentalo de nuevo.</Text> : null
+                            this.state.error ? 
+                            <Text style={styles.errorText}>Al parecer algun dato no es correcto <FontAwesome6 name="face-flushed" size={24} color="#8b939c" />. Intentalo de nuevo.</Text> : null
                         }
 
 
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
     errorText: {
-        color: 'red',
+        color: '#8b939c',
         marginTop: 10,
         textAlign: 'center',
     },

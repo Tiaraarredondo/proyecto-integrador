@@ -15,7 +15,7 @@ export default function BottomTabs() {
           component={Home}
           options={{
             headerShown:false,
-            tabBarIcon: () => <FontAwesome name="home" size={24} color="black" />
+            tabBarIcon: () => <FontAwesome name="home" size={24} color="#8B939C" />
           }}
           />
 
@@ -24,7 +24,7 @@ export default function BottomTabs() {
           component={Perfil}
           options={{
             headerShown:false,
-            tabBarIcon: () => <MaterialIcons name="account-circle" size={24} color="black" />
+            tabBarIcon: () => <MaterialIcons name="account-circle" size={24} color="#8B939C" />
           }}
           />
 
@@ -33,7 +33,7 @@ export default function BottomTabs() {
           component={CrearPost}
           options={{
             headerShown:false,
-            tabBarIcon: () => <Entypo name="pencil" size={24} color="black" />
+            tabBarIcon: () => <Entypo name="pencil" size={24} color="#8B939C" />
           }}
           />
 

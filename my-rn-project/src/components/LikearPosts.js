@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { Component } from 'react'
 import { auth, db } from '../firebase/config'
 import firebase from 'firebase'
+import { Ionicons } from '@expo/vector-icons'
 
 
 
@@ -74,7 +75,7 @@ export default class LikearPost extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.likeCount}>❤️ {this.state.cantLikes} likes</Text>
+                <Text style={styles.likeCount}>{this.state.cantLikes} likes</Text>
                 {
                     this.state.likes ?
                         <TouchableOpacity style={styles.button}
@@ -84,8 +85,8 @@ export default class LikearPost extends Component {
 
 
                         >
-                            <Text style={styles.buttonText}>
-                                Quitar like
+                            <Text>
+                                <Ionicons name="heart" size={24} color="#FF0035" /> 
                             </Text>
                         </TouchableOpacity>
                         :
@@ -96,8 +97,8 @@ export default class LikearPost extends Component {
 
 
                         >
-                            <Text style={styles.buttonText}>
-                                Like
+                            <Text>
+                                <Ionicons name="heart" size={24} color="#8B939C" /> 
                             </Text>
                         </TouchableOpacity>
                 }
@@ -140,15 +141,9 @@ const styles = StyleSheet.create({
         color: '#555'
     },
     button: {
-        backgroundColor: '#FF4081',
         paddingVertical: 6,
         paddingHorizontal: 16,
         borderRadius: 20,
-    },
-    buttonText: {
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 14,
     }
 });
 

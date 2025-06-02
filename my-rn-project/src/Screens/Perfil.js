@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { auth, db } from '../firebase/config';
 import Post from '../components/Posts';
+import { FontAwesome6 } from '@expo/vector-icons'
 
 export default class Perfil extends Component {
   constructor(props) {
@@ -70,7 +71,7 @@ export default class Perfil extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Mi Perfil 👤</Text>
+        <Text style={styles.title}>Mi Perfil {"     "}<FontAwesome6 name="user" size={24} color="#8B939C" /></Text>
 
         {userData && currentUser ? (
           <View style={styles.container}>
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   button: {
-    backgroundColor: '#009688',
+    backgroundColor: '#FF0035',
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 25,

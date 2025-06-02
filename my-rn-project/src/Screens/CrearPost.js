@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import React, { Component } from 'react'
 import { auth, db } from '../firebase/config'
+import { FontAwesome , FontAwesome6 } from "@expo/vector-icons"
 
 export default class CrearPost extends Component {
     constructor(props) {
@@ -51,10 +52,10 @@ export default class CrearPost extends Component {
                 />
 
                 <TouchableOpacity style={styles.btn} onPress={() => this.CrearPosteo()}>
-                    <Text style={styles.btnTxt}>Postear</Text>
+                    <Text><FontAwesome name="send" size={24} color="#8B939C" /></Text>
                 </TouchableOpacity>
 
-                {this.state.error && <Text style={styles.errorText}>No has escrito nada aún 🥲</Text>}
+                {this.state.error && <Text style={styles.errorText}>No has escrito nada aún {"   "} <FontAwesome6 name="face-flushed" size={24} color="#8B939C" /></Text>}
             </View>
         )
     }
@@ -87,18 +88,13 @@ const styles = StyleSheet.create({
     btn: {
         width: '100%',
         height: 50,
-        backgroundColor: '#3897f0',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    btnTxt: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
     errorText: {
-        color: 'red',
+        color: '#8B939C',
+        fontSize : 16,
         marginTop: 10,
         textAlign: 'center',
     }

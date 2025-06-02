@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import LikearPost from './LikearPosts';
+import { FontAwesome6 } from '@expo/vector-icons'
 
 export default function Post({ data, id, onDelete }) {
   return (
     <View style={styles.post}>
-      <Text style={styles.owner}>👤 {data.owner}</Text>
+      <Text style={styles.owner}> <FontAwesome6 name="user" size={24} color="#8B939C" />{"     "}{data.owner}</Text>
       <Text style={styles.text}>{data.text}</Text>
 
       <LikearPost data={data} id={id} />
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   deleteButton: {
-    backgroundColor: '#d32f2f',
+    backgroundColor: '#FF0035',
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 20,

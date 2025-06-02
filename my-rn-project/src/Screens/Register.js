@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import React, { Component } from 'react'
 import { auth, db } from '../firebase/config'
+import { MaterialCommunityIcons , Ionicons } from "@expo/vector-icons"
 
 export default class Register extends Component {
     constructor(props) {
@@ -95,10 +96,10 @@ export default class Register extends Component {
                     <Text style={styles.btnTxt}>Registrarme</Text>
                 </TouchableOpacity>
                 {
-                    this.state.error ? <Text style={styles.errorText}>🚨Debes completar todos los campos🚨</Text> : null
+                    this.state.error ? <Text style={styles.errorText}><MaterialCommunityIcons name="alert-circle" size={24} color="#8b939c" /> {"   "} Debes completar todos los campos </Text> : null
                 }
                 <TouchableOpacity onPress={() => this.irAlLogin()}>
-                    <Text style={styles.registerLink}>¿Ya tenes cuenta? Inicia sesión.💫
+                    <Text style={styles.registerLink}>¿Ya tenes cuenta? Inicia sesión.<Ionicons name="enter-sharp" size={24} color="#3897f0" />
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
     errorText: {
-        color: 'red',
+        color: '#8b939c',
         marginTop: 10,
         textAlign: 'center',
     },

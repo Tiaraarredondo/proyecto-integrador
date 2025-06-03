@@ -1,4 +1,3 @@
-// Perfil.js
 import React, { Component } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { auth, db } from '../firebase/config';

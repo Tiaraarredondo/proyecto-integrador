@@ -1,10 +1,4 @@
-import {
-    Text,
-    View,
-    TextInput,
-    StyleSheet,
-    TouchableOpacity
-} from 'react-native'
+import {Text,View,TextInput,StyleSheet,TouchableOpacity} from 'react-native'
 import React, { Component } from 'react'
 import { auth, db } from '../firebase/config'
 import { MaterialCommunityIcons , Ionicons } from "@expo/vector-icons"

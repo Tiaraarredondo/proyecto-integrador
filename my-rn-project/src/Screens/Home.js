@@ -1,4 +1,3 @@
-// Home.js
 import React, { Component } from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 import { db } from '../firebase/config';
